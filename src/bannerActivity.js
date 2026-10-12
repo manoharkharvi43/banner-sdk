@@ -1,11 +1,11 @@
 // API Configuration
+// Injected at build time by vite.config.js: `npm run build:prod` / `build:preprod`.
+// Dev server (`npm run dev`) falls back to localhost.
+/* global __API_BASE_URL__ */
 export const API_BASE_URL =
-  "https://cookie-manager.blutic.club/cookie-manager/api/v1";
-// export const API_BASE_URL = "http://localhost:8005/cookie-manager/api/v1";
-// export const API_BASE_URL =
-//   "https://qa-bluetic-cookie.blutic.club:9444/cookie-manager/api/v1";
-// export const API_BASE_URL =
-//   "https://cookie-management-svc.blutic.club/cookie-manager/api/v1";
+  typeof __API_BASE_URL__ !== "undefined"
+    ? __API_BASE_URL__
+    : "http://localhost:8005/cookie-manager/api/v1";
 
 let browserId = localStorage.getItem("browserId");
 let domainId = localStorage.getItem("domainId");
